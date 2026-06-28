@@ -12,7 +12,9 @@ function Skills() {
 
   return (
     <section className="skills" id="skills">
-      <h2>Technical Skills</h2>
+      <div className="container">
+        <h2>Technical Skills</h2>
+      </div>
 
       <div className="skills-container">
         {skills.map((skill, index) => (

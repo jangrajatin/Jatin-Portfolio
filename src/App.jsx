@@ -10,9 +10,25 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ScrollProgress from "./components/ScrollProgress";
 import Github from "./components/Github";
+import { useEffect, useState } from "react";
+import Loader from "./components/Loader";
 
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <>
       <ScrollProgress /> 
@@ -28,6 +44,9 @@ function App() {
         <Contact />
         <Footer />
       </div>
+
+
+
     </>
   );
 }

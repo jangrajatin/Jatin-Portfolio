@@ -26,9 +26,11 @@ body {
   padding: 22px 80px;
 
   backdrop-filter: blur(15px);
-  background: rgba(10,10,10,0.7);
+  background: rgba(10,10,10,.75);
 
-  border-bottom: 1px solid rgba(255,208,0,0.2);
+  border-bottom: 1px solid rgba(255,208,0,.15);
+
+  transition: all .3s ease;
 }
 
 .navbar h2 {
@@ -37,8 +39,9 @@ body {
 
 .navbar ul {
   display: flex;
-  gap: 30px;
+  gap: 18px;
   list-style: none;
+  align-items: center;
 }
 
 .navbar li {
@@ -237,22 +240,88 @@ button {
     0 0 40px rgba(255,208,0,.35);
 }
 
+/* ===========================
+   Navbar Hover Effect
+=========================== */
 
 .navbar a{
-  text-decoration:none;
-  color:rgb(255, 255, 255);
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    text-decoration:none;
+    color:#fff;
+
+    padding:12px 22px;
+
+    border:2px solid transparent;
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:
+        transform .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
 }
 
 .navbar a:hover{
-  color:#ffd000;
+
+    color:#ffd000;
+
+    border-color:#ffd000;
+
+    background:rgba(255,208,0,.08);
+
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 0 12px rgba(255,208,0,.25),
+        0 0 25px rgba(255,208,0,.18);
+}
+
+.navbar a::after{
+    content:"";
+    position:absolute;
+
+    left:50%;
+    bottom:-8px;
+
+    width:0;
+    height:2px;
+
+    background:#ffd000;
+
+    transform:translateX(-50%);
+    transition:.3s;
+}
+
+.navbar a:hover::after{
+    width:70%;
 }
 
 .navbar ul li{
-    transition:0.3s;
+    list-style:none;
 }
 
-.navbar ul li:hover{
-    transform:translateY(-3px);
+/* ===========================
+   Active Navbar
+=========================== */
+
+.navbar a.active{
+    color:#ffd000;
+    background:rgba(255,208,0,.12);
+    border:2px solid #ffd000;
+    border-radius:12px;
+    transform:translateY(-5px);
+    box-shadow:0 0 15px rgba(255,208,0,.45);
+}
+
+.navbar a.active::after{
+    width:70%;
 }
 
 .btn{

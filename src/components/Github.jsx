@@ -1,7 +1,9 @@
 function Github() {
   return (
     <section className="github" id="github">
-      <h2>GitHub Statistics</h2>
+      <div className="container">
+        <h2>GitHub Statistics</h2>
+      </div>
 
       <div className="github-stats">
         <img

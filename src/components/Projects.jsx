@@ -26,7 +26,9 @@ const projects = [
 function Projects() {
   return (
     <section className="projects" id="projects">
-      <h2>My Projects</h2>
+      <div className="container">
+        <h2>My Projects</h2>
+      </div>
 
       <div className="projects-grid">
         {projects.map((project, index) => (
@@ -51,8 +53,6 @@ function Projects() {
                 >
                   GitHub
                 </a>
-
-                
                 
               </div>
             </div>

@@ -3,8 +3,6 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 
-
-
 function Hero() {
   return (
     <motion.section
@@ -15,7 +13,9 @@ function Hero() {
       transition={{ duration: 1 }}
     >
       <div className="hero-content">
-        <h1>Jatin Jangra</h1>
+        <div className="container">
+          <h1>Jatin Jangra</h1>
+        </div>
 
         <TypeAnimation
           sequence={[
