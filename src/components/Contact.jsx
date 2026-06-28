@@ -1,25 +1,40 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 function Contact() {
   const form = useRef();
 
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
+
   const sendEmail = (e) => {
     e.preventDefault();
+
+    setLoading(true);
+    setStatus("");
 
     emailjs
       .sendForm(
         "service_6hcjj6k",
-        "template_5txmtd6",
+        "template_jenpnod",
         form.current,
-        "rW7uoAuuDkfAb_m5x"
+        {
+          publicKey: "rW7uoAuuDkfAb_m5x",
+        }
       )
       .then(() => {
-        alert("Message sent successfully!");
+        setStatus("✅ Message sent successfully!");
         form.current.reset();
       })
-      .catch(() => {
-        alert("Failed to send message.");
+      .catch((error) => {
+        console.log("Status:", error.status);
+        console.log("Text:", error.text);
+        console.log("Full Error:", error);
+        setStatus("❌ Failed to send message: " + error.text);
+        alert("Failed: " + error.text);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -49,9 +64,21 @@ function Contact() {
           required
         />
 
-        <button type="submit" className="btn">
-          Send Message
+        <button type="submit" className="btn" disabled={loading}>
+          {loading ? "Sending..." : "Send Message"}
         </button>
+
+        {status && (
+          <p
+            style={{
+              marginTop: "15px",
+              textAlign: "center",
+              fontWeight: "600",
+            }}
+          >
+            {status}
+          </p>
+        )}
       </form>
     </section>
   );
