@@ -1,7 +1,5 @@
 import calculator from "../assets/projects/calculator.png";
 import portfolio from "../assets/projects/portfolio.png";
-import spacex from "../assets/projects/spacex.png";
-import automobile from "../assets/projects/automobile.png";
 
 
 const projects = [
@@ -21,22 +19,8 @@ const projects = [
     github: "https://github.com/jangrajatin",
     demo: "https://github.com/jangrajatin/React-Portfolio",
   },
-  {
-    title: "SpaceX Data Analysis",
-    image: spacex,
-    description:
-      "Data analysis and visualization using Python, Pandas and Matplotlib.",
-    github: "https://github.com/jangrajatin",
-    demo: "#",
-  },
-  {
-    title: "Automobile Sales Dashboard",
-    image: automobile,
-    description:
-      "Exploratory Data Analysis project using Python with interactive charts and insights.",
-    github: "https://github.com/jangrajatin",
-    demo: "#",
-  },
+  
+  
 ];
 
 function Projects() {
@@ -68,14 +52,8 @@ function Projects() {
                   GitHub
                 </a>
 
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-outline"
-                >
-                  Live Demo
-                </a>
+                
+                
               </div>
             </div>
           </div>
